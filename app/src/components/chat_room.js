@@ -10,7 +10,7 @@ export default class ChatRoom extends React.Component {
                     return (
                         <li key={index} className="message">
                             <div className="message-sender">me</div>
-                            <div className="row col-lg-12">
+                            <div className="row message-wrapper">
                                 <Message
                                     messages={messages}
                                     message={message}
