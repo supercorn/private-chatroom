@@ -1,6 +1,12 @@
 @import "variables";
 
-/* Layout */
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~font-awesome/scss/font-awesome";
 
+/* Layout */
+@import "layout/form";
 /* Modules */
+@import "modules/chat";
+
+@import "scaffolding";
 

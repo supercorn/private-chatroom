@@ -1,7 +1,7 @@
 {
   "name": "private-chatroom",
   "version": "0.1.0",
-  "description": "basic setup for react + redux project",
+  "description": "redux+redux demo app for a private chatroom",
   "main": "main.js",
   "directories": {
     "test": "tests"

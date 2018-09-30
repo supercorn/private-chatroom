@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import {alertsReducer} from "./alert";
+import {messagesReducer} from "./messages";
 
 const appReducer = combineReducers({
-    alerts: alertsReducer
+    messages: messagesReducer
 });
 
 const rootReducer = (state, action) => {

@@ -1,2 +1,22 @@
 // configuring bootstrap:
 $bootstrap-sass-asset-helper: true;
+
+// font path for font awesome:
+$fa-font-path: '~font-awesome/fonts';
+
+// colors
+$brand-primary:       #5ea3d0;
+$brand-secondary:     #ffffff;
+$brand-dark:          darken($brand-primary, 30%);
+$text-color-base:     #3e5869;
+$text-color-negative: #b0c7d6;
+$input-bg-color:      #F5F5F5;
+
+// fonts
+$font-size-base: 16px;
+$font-size-xs:   11px;
+$font-family-base: system-ui;
+
+// sizes
+$height-default: 30px;
+

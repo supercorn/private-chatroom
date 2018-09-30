@@ -1,41 +1,77 @@
 import React from "react";
 import {connect} from "react-redux";
-import { Jumbotron, Container } from "reactstrap";
 
-import Alerts from "./alerts";
+import ChatHeader from "../components/chat_header";
+import ChatRoom from "../components/chat_room";
+import ChatForm from "../components/chat_form";
+import {bindActionCreators} from "redux";
+import {addMessage, deleteMessage, editMessage} from "../actions/messages";
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    sendMessage(message) {
+        this.props.addMessage(message);
+    }
+
+    handleDelete(id) {
+        this.props.deleteMessage(id);
+    }
+
+    handleEdit(message) {
+        this.props.editMessage(message);
+    }
+
+    scrollToBottom = () => {
+        this.messagesEnd.scrollIntoView({behavior: "smooth"});
+    };
+
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
     render() {
-        const {alerts} = this.props;
-
+        const {messages} = this.props;
         return (
-            <div className="container">
-
-                <div className="content">
-                    <div>
-                        <Alerts alerts={alerts}/>
-                    </div>
-                    <div className="text-center">
-                        <Jumbotron fluid>
-                            <Container fluid>
-                                <h1 className="display-3">Welcome to the app-skeleton</h1>
-                                <p className="lead">
-                                    you can simply use this basic setup to start your react/redux
-                                    project.
-                                </p>
-                            </Container>
-                        </Jumbotron>
-                    </div>
+            <div>
+                <ChatHeader messagesCount={this.props.messages.length}/>
+                <ChatRoom
+                    messages={messages}
+                    deleteMessage={this.handleDelete.bind(this)}
+                    editMessage={this.handleEdit.bind(this)}/>
+                <div
+                    style={{float: "left", clear: "both"}}
+                    ref={(el) => {
+                        this.messagesEnd = el;
+                    }}>
                 </div>
+                <ChatForm sendMessage={this.sendMessage.bind(this)}/>
             </div>
         );
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(
+        {
+            addMessage,
+            deleteMessage,
+            editMessage
+        },
+        dispatch
+    );
+}
+
 function mapStateToProps(state) {
     return {
-        alert: state.alert
+        messages: state.messages
     };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

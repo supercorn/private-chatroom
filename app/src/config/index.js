@@ -1,3 +1,1 @@
-import ALERT_TYPES from "./alert_types";
-
-export {ALERT_TYPES};
+// from here come the constants when existing ...

@@ -1,0 +1,34 @@
+form {
+  &.chat-form {
+    background: $input-bg-color;
+    display: flex;
+    box-sizing: border-box;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    input {
+      width: 100%;
+      padding: 15px 10px;
+      border: none;
+      margin: 0;
+      background: $input-bg-color;
+      font-weight: 200;
+      &:focus {
+        outline-width: 0;
+      }
+      ::placeholder {
+        color: black;
+      }
+    }
+  }
+  &.edit-text-form {
+    width: 75%;
+    input {
+      padding: 5px 10px;
+      border: 1px solid $input-bg-color;
+      height: $height-default;
+      width: 100%;
+    }
+  }
+}

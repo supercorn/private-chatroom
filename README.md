@@ -11,7 +11,7 @@ this project is based on the app skeleton I previously made (https://github.com/
 
 2. install the packages:
 
-```cd app & npm install```
+```cd private-chatroom/app & npm install```
 
 3. from app location run the project:
 
